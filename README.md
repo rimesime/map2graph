@@ -4,7 +4,7 @@ Generating graph structure from map.
 How to:
 - place grayscaled image in folder called map.png
 - >make
-- >./map2graph <number of iterations>
+- >./map2graph [number of iterations]
 - writes/overwrites map_graph.png
 
 What works now: 
