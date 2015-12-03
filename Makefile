@@ -3,7 +3,7 @@ Cxx=g++
 # 2.
 CXXFLAGS = -I/usr/local/include/opencv2 -O0 -g3 -Wall -c
 # 3.
-LIBS =    -L/usr/lib -lpthread -ldl -lm -std=gnu++0x -std=c++0x -lopencv_core -lopencv_highgui -lopencv_imgproc
+LIBS =    -L/usr/lib -lpthread -ldl -lm -std=gnu++0x -std=c++0x -lopencv_core -lopencv_imgproc
 
 # 4.
 # put the soruce files here example here face.cpp and function.cpp are commom source files used by both targets
@@ -18,12 +18,11 @@ KERNELBUILDER_OBJECTS = kernel.o
 MAP2GRAPH_EXECUTABLE = map2graph
 KERNELBUILDER_EXECUTABLE = kernel
 
-# 7. the real mess
 .PHONY: all
-# for make all
-all: map2graph
-# for make map2graph
-map2graph: $(MAP2GRAPH_EXECUTABLE)
+all: build_map2graph
+
+.PHONY: build_map2graph
+build_map2graph: $(MAP2GRAPH_EXECUTABLE)
 
 $(MAP2GRAPH_EXECUTABLE): $(MAP2GRAPH_OBJECTS) $(KERNELBUILDER_OBJECTS)
 	@echo 'Building executable:'
