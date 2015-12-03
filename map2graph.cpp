@@ -12,7 +12,7 @@ unsigned char *input2;
 
 vector<Mat> kernels;
 
-int getPx(int i, int j, Mat &m) {
+inline int getPx(int i, int j, Mat &m) {
   if (j >= 0 && j < m.rows && i >= 0 && i < m.cols) {
     return ((unsigned char *)(m.data))[m.step[0] * j + m.step[1] * i];
   }
@@ -20,12 +20,12 @@ int getPx(int i, int j, Mat &m) {
   return 0; // black
 }
 
-void setPx(int i, int j, int color) {
+inline void setPx(int i, int j, int color) {
   if (j >= 0 && j < img.rows && i >= 0 && i < img.cols)
     input[img.step[0] * j + img.step[1] * i] = color;
 }
 
-int match(int i, int j, Mat &img, Mat &k) {
+inline int match(int i, int j, Mat &img, Mat &k) {
   return (getPx(i - 1, j - 1, img) == getPx(0, 0, k) &&
           getPx(i + 0, j - 1, img) == getPx(1, 0, k) &&
           getPx(i + 1, j - 1, img) == getPx(2, 0, k) &&
@@ -72,7 +72,7 @@ int main(int argc, const char **argv) {
   cout << "Making it white & black... ";
   for (int j = 0; j < img.rows; j++) {
     for (int i = 0; i < img.cols; i++) {
-      if (getPx(i, j, img2) < 255) {
+      if (getPx(i, j, img2) < 128) {
         // make it black
         setPx(i, j, 0);
       } else {
