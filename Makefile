@@ -3,7 +3,7 @@ Cxx=g++
 # 2.
 CXXFLAGS = -I/usr/local/include/opencv2 -O0 -g3 -Wall -c
 # 3.
-LIBS =    -L/usr/lib -lpthread -ldl -lm -std=gnu++0x -std=c++0x -lopencv_core -lopencv_imgproc
+LIBS =    -L/usr/lib -lpthread -ldl -lm -std=gnu++0x -std=c++0x -lopencv_core -lopencv_highgui -lopencv_imgproc
 
 # 4.
 # put the soruce files here example here face.cpp and function.cpp are commom source files used by both targets
